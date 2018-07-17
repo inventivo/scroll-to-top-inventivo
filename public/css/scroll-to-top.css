@@ -1,0 +1,1 @@
+.scroll-to-top-button{position:fixed;bottom:40px;margin:0;padding:0;width:50px;height:50px;z-index:9999;background:#95bf30;border:0px}.scroll-to-top-button:after{display:inline-block;margin-left:2px;content:'\f432';vertical-align:top;font-size:32px;font-family:'Genericons';line-height:1;color:inherit}.scroll-to-top-button.left{left:40px}.scroll-to-top-button.right{right:40px}
