@@ -22,7 +22,7 @@ Display a scroll to top button at page bottom
 
 Display a scroll to top button at page bottom. You can configure button background color, text color and alignment to your needs.
 
-Visit the website of <a href="https://www.inventivo.de">inventivo Webdesign Münster</a> in order to see the plugin in action.
+Visit our <a href="https://www.inventivo.de">Website</a> in order to see the plugin in action.
 
 Small and simple:
 - Responsive - fits to all screens
