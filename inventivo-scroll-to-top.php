@@ -37,7 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Version of the plugin
 define('INVENTIVO_SCROLL_TO_TOP_CURRENT_VERSION', '1.0.0' );
 
-add_action('admin_enqueue_scripts', array('InventivoScrollToTopSettingsPage','inventivo_scroll_to_top_css'));
+add_action('admin_enqueue_scripts', array('InventivoScrollToTopSettingsPage','inventivo_scroll_to_top_admincss'));
 add_action( 'wp_enqueue_scripts', array('InventivoScrollToTopSettingsPage','inventivo_scroll_to_top_js' ));
 add_action( 'wp_enqueue_scripts', array('InventivoScrollToTopSettingsPage','inventivo_scroll_to_top_publiccss' ));
 
