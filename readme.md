@@ -16,6 +16,7 @@ Visit our <a href="https://www.inventivo.de/seo-muenster"> website</a> in order 
 ## Screenshots
 
 ![Illustration: Scroll to top - Screenshot 1](https://ps.w.org/scroll-to-top-inventivo/trunk/screenshot-1.png?rev=1939192)
+
 ![Illustration: Scroll to top - Screenshot 2](https://ps.w.org/scroll-to-top-inventivo/trunk/screenshot-2.png?rev=1939192)
 
 ### Prerequisites
