@@ -21,7 +21,7 @@ Visit our <a href="https://www.inventivo.de/seo-muenster"> website</a> in order 
 ### Prerequisites
 
 * WordPress 3.0 and later
-* Tested up to: 4.9.8
+* Tested up to: 4.9.8 
 
 ### Installing
 
@@ -53,4 +53,7 @@ For the versions available, see the [tags on this repository](https://github.com
 
 * License:      GPL2
 * License URI:  https://www.gnu.org/licenses/gpl-2.0.html
+
+
+
 
