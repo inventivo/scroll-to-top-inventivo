@@ -3,13 +3,13 @@ Contributors: inventivogermany
 Plugin Name:  Scroll to top | inventivo
 Plugin URI:   https://www.inventivo.de/wordpress-agentur/wordpress-plugins
 Description:  Display a scroll to top button at page bottom
-Version:      0.0.4
+Version:      0.0.5
 Author:       Nils Harder
 Author URI:   https://www.inventivo.de
 Tags: scroll top
 Requires at least: 3.0
 Tested up to: 5.2.2
-Stable tag: 0.0.4
+Stable tag: 0.0.5
 Text Domain: inventivo-scroll-to-top
 Domain Path: /languages
 License:      GPL2
@@ -53,5 +53,6 @@ Use WordPress' Add New Plugin feature, searching "Scroll to top | inventivo", or
 
 
 == Changelog ==
-0.0.4 Moved project to github
-0.0.2 added images
+0.0.5   Code optimization
+0.0.4   Moved project to github
+0.0.2   added images

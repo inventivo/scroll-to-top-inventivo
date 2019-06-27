@@ -3,13 +3,13 @@ Contributors: inventivogermany
 Plugin Name:  Scroll to top | inventivo
 Plugin URI:   https://www.inventivo.de/wordpress-agentur/wordpress-plugins
 Description:  Display scroll to top button at page bottom
-Version:      0.0.4
+Version:      0.0.5
 Author:       Nils Harder
 Author URI:   https://www.inventivo.de
 Tags: scroll top
 Requires at least: 3.0
 Tested up to: 5.2.2
-Stable tag: 0.0.4
+Stable tag: 0.0.5
 Text Domain: inventivo-scroll-to-top
 Domain Path: /languages
 License:      GPL2
@@ -30,53 +30,54 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
     exit;
 }
 
 // Version of the plugin
-define('INVENTIVO_SCROLL_TO_TOP_CURRENT_VERSION', '1.0.0' );
+define('INVENTIVO_SCROLL_TO_TOP_CURRENT_VERSION', '1.0.0');
 
 add_action('admin_enqueue_scripts', array('InventivoScrollToTopSettingsPage','inventivo_scroll_to_top_admincss'));
-add_action( 'wp_enqueue_scripts', array('InventivoScrollToTopSettingsPage','inventivo_scroll_to_top_js' ));
-add_action( 'wp_enqueue_scripts', array('InventivoScrollToTopSettingsPage','inventivo_scroll_to_top_publiccss' ));
+add_action('wp_enqueue_scripts', array('InventivoScrollToTopSettingsPage','inventivo_scroll_to_top_js' ));
+add_action('wp_enqueue_scripts', array('InventivoScrollToTopSettingsPage','inventivo_scroll_to_top_publiccss' ));
 
-class InventivoScrollToTopSettingsPage {
-
+class InventivoScrollToTopSettingsPage
+{
     /**
      * Holds the values to be used in the fields callbacks
      */
-    private $options;
+    public $options;
 
     /**
      * Start up
      */
     public function __construct()
     {
-        add_action('plugins_loaded',array($this,'inventivo_scroll_to_top_load_textdomain'));
+        add_action('plugins_loaded', array($this,'inventivo_scroll_to_top_load_textdomain'));
         //add_action('init',array($this,'my_i18n_debug'));
-        add_action( 'admin_menu', array( $this, 'add_plugin_page' ) );
-        add_action( 'admin_init', array( $this, 'page_init' ) );
+        add_action('admin_menu', array( $this, 'add_plugin_page' ));
+        add_action('admin_init', array( $this, 'page_init' ));
     }
 
 
-    function inventivo_scroll_to_top_load_textdomain() {
-        load_plugin_textdomain( 'inventivo-scroll-to-top', false, dirname( plugin_basename( __FILE__ ) ) . '/languages');
+    public function inventivo_scroll_to_top_load_textdomain()
+    {
+        load_plugin_textdomain('inventivo-scroll-to-top', false, dirname(plugin_basename(__FILE__)) . '/languages');
     }
 
-    function my_i18n_debug(){
+    public function my_i18n_debug()
+    {
 
-        $loaded=load_plugin_textdomain( 'inventivo-scroll-to-top', false, dirname( plugin_basename( __FILE__ ) ) . '/languages');
+        $loaded = load_plugin_textdomain('inventivo-scroll-to-top', false, dirname(plugin_basename(__FILE__)) . '/languages');
 
-        if ( ! $loaded ){
+        if (!$loaded) {
             echo "<hr/>";
             echo "Error: the mo file was not found! ";
             exit();
-        }else{
+        } else {
             echo "<hr/><strong>Debug info</strong>:<br/>";
-            //echo "WPLANG: ". WPLANG;
             echo "<br/>";
-            echo "translate test: ". __('Scroll to top | inventivo','inventivo-scroll-to-top');
+            echo "translate test: ".__('Scroll to top | inventivo', 'inventivo-scroll-to-top');
             exit();
         }
     }
@@ -89,7 +90,7 @@ class InventivoScrollToTopSettingsPage {
         // This page will be under "Settings"
         add_options_page(
             'Settings Admin',
-            esc_html__( 'Scroll top top | inventivo', 'inventivo-scroll-to-top' ),
+            esc_html__('Scroll top top | inventivo', 'inventivo-scroll-to-top'),
             'manage_options',
             'inventivo_scroll_to_top_setting_admin',
             array( $this, 'create_admin_page' )
@@ -102,15 +103,15 @@ class InventivoScrollToTopSettingsPage {
     public function create_admin_page()
     {
         // Set class property
-        $this->options = get_option( 'inventivo_scroll_to_top_option_name' );
+        $this->options = get_option('inventivo_scroll_to_top_option_name');
         ?>
         <div class="wrap">
-            <h1><?php esc_html_e( 'Scroll to top | inventivo', 'inventivo-scroll-to-top' ); ?></h1>
+            <h1><?php esc_html_e('Scroll to top | inventivo', 'inventivo-scroll-to-top'); ?></h1>
             <form method="post" action="options.php">
                 <?php
                 // This prints out all hidden setting fields
-                settings_fields( 'inventivo_scroll_to_top_option_group' );
-                do_settings_sections( 'inventivo_scroll_to_top_setting_admin' );
+                settings_fields('inventivo_scroll_to_top_option_group');
+                do_settings_sections('inventivo_scroll_to_top_setting_admin');
                 submit_button();
                 ?>
             </form>
@@ -119,21 +120,24 @@ class InventivoScrollToTopSettingsPage {
     }
 
     // Add admin styles
-    public function inventivo_scroll_to_top_admincss() {
+    public function inventivo_scroll_to_top_admincss() 
+    {
         wp_enqueue_style('inventivo-scroll-to-top-admin-styles', plugins_url('/admin/css/admin-styles.css', __FILE__));
     }
 
     // Add public styles
-    public function inventivo_scroll_to_top_publiccss() {
-        wp_register_style( 'inventivo-scroll-to-top-publiccss', plugins_url('/public/css/scroll-to-top.css', __FILE__) );
-        wp_enqueue_style( 'inventivo-scroll-to-top-publiccss' );
-        wp_register_style( 'inventivo-scroll-to-top-genericons', plugins_url('/public/css/genericons.css', __FILE__) );
-        wp_enqueue_style( 'inventivo-scroll-to-top-genericons' );
+    public function inventivo_scroll_to_top_publiccss() 
+    {
+        wp_register_style('inventivo-scroll-to-top-publiccss', plugins_url('/public/css/scroll-to-top.css', __FILE__));
+        wp_enqueue_style('inventivo-scroll-to-top-publiccss');
+        wp_register_style('inventivo-scroll-to-top-genericons', plugins_url('/public/css/genericons.css', __FILE__));
+        wp_enqueue_style('inventivo-scroll-to-top-genericons');
     }
 
 
-    public function inventivo_scroll_to_top_js() {
-        $options = get_option( 'inventivo_scroll_to_top_option_name' );
+    public function inventivo_scroll_to_top_js() 
+    {
+        $options = get_option('inventivo_scroll_to_top_option_name');
 
         switch($options['alignment']) {
             case 'left':
@@ -147,17 +151,17 @@ class InventivoScrollToTopSettingsPage {
                 break;
         }
 
-        wp_register_script( 'inventivo-scroll-to-top', plugins_url( '/public/js/scroll-to-top.js', __FILE__ ), array( 'jquery' ), '1.0', true );
+        wp_register_script('inventivo-scroll-to-top', plugins_url('/public/js/scroll-to-top.js', __FILE__), array( 'jquery' ), '1.0', true);
 
         $invscrolltotopoptions = array(
             'background_color' => esc_attr($options['background_color']),
             'icon_color' => esc_attr($options['icon_color']),
             'alignment' => $alignment
         );
-        wp_localize_script( 'inventivo-scroll-to-top', 'invscrolltotopoptions', $invscrolltotopoptions );
+        wp_localize_script('inventivo-scroll-to-top', 'invscrolltotopoptions', $invscrolltotopoptions);
 
         // Enqueued script with localized data.
-        wp_enqueue_script( 'inventivo-scroll-to-top' );
+        wp_enqueue_script('inventivo-scroll-to-top');
     }
 
 
@@ -206,52 +210,59 @@ class InventivoScrollToTopSettingsPage {
 
     public function sanitize( $input )
     {
-        $new_input = array();
-        if( isset( $input['background_color'] ) )
-            $new_input['background_color'] = sanitize_text_field( $input['background_color'] );
+        $newInput = array();
+        if(isset($input['background_color']) )
+            $newInput['background_color'] = sanitize_text_field($input['background_color']);
 
-        if( isset( $input['icon_color'] ) )
-            $new_input['icon_color'] = sanitize_text_field( $input['icon_color'] );
+        if(isset($input['icon_color']) )
+            $newInput['icon_color'] = sanitize_text_field($input['icon_color']);
 
-        if( isset( $input['alignment'] ) )
-            $new_input['alignment'] = sanitize_text_field( $input['alignment'] );
+        if(isset($input['alignment']) )
+            $newInput['alignment'] = sanitize_text_field($input['alignment']);
 
-        return $new_input;
+        return $newInput;
     }
 
     public function print_section_info()
     {
-        _e( 'Please adapt colors and button alignment to your needs:', 'inventivo-scroll-to-top' );
+        _e('Please adapt colors and button alignment to your needs:', 'inventivo-scroll-to-top');
     }
 
     public function background_color_callback()
     {
         printf(
-            '<input type="text" id="background_color" name="inventivo_scroll_to_top_option_name[background_color]" value="%s" /> '.__( 'Example: #a6ce38', 'inventivo-scroll-to-top' ),
-            isset( $this->options['background_color'] ) ? esc_attr( $this->options['background_color']) : __( '#a6ce38', 'inventivo-scroll-to-top' )
+            '<input type="text" id="background_color" name="inventivo_scroll_to_top_option_name[background_color]" value="%s" /> '.__('Example: #a6ce38', 'inventivo-scroll-to-top'),
+            isset($this->options['background_color']) ? esc_attr($this->options['background_color']) : __('#a6ce38', 'inventivo-scroll-to-top')
         );
     }
     public function icon_color_callback()
     {
-        printf(
-            '<input type="text" id="icon_color" name="inventivo_scroll_to_top_option_name[icon_color]" value="%s" /> '.__( 'Example: #FFFFFF', 'inventivo-scroll-to-top' ),
-            isset( $this->options['icon_color'] ) ? esc_attr( $this->options['icon_color']) : __( '#FFFFFF', 'inventivo-scroll-to-top' )
+        printf( 
+            '<input type="text" id="icon_color" name="inventivo_scroll_to_top_option_name[icon_color]" value="%s" /> '.__('Example: #FFFFFF', 'inventivo-scroll-to-top'),
+            isset($this->options['icon_color']) ? esc_attr($this->options['icon_color']) : __('#FFFFFF', 'inventivo-scroll-to-top')
         );
     }
 
     public function alignment_callback()
     {
-        if($this->options['alignment'] == 'left') { $selected1 = 'selected'; }
-        if($this->options['alignment'] == 'right') { $selected2 = 'selected'; }
-        printf(
+        if ($this->options['alignment'] == 'left') { 
+            $selectedA = 'selected'; 
+        }
+
+        if ($this->options['alignment'] == 'right') { 
+            $selectedB = 'selected'; 
+        }
+
+    printf(
             '<select id="alignment" name="inventivo_scroll_to_top_option_name[alignment]">
-                <option value="left" '.$selected1.'>Left</option>
-                <option value="right" '.$selected2.'>Right</option>
+                <option value="left" '.$selectedA.'>Left</option>
+                <option value="right" '.$selectedB.'>Right</option>
 		    </select>',
-            isset( $this->options['alignment'] ) ? esc_attr( $this->options['alignment']) : __('Alignment','inventivo-scroll-to-top')
+            isset($this->options['alignment']) ? esc_attr($this->options['alignment']) : __('Alignment', 'inventivo-scroll-to-top')
         );
     }
 }
 
-if( is_admin() )
-    $my_settings_page = new InventivoScrollToTopSettingsPage();
+if (is_admin()) {
+    $mySettingsPage = new InventivoScrollToTopSettingsPage();
+}
