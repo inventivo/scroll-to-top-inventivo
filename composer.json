@@ -1,0 +1,14 @@
+{
+  "name": "inventivo/scroll-to-top-inventivo",
+  "description": "Add a scroll-to-top button in the left or right corner when scrolling down your website",
+  "homepage": "https://www.inventivo.de",
+  "license": "CC BY-ND",
+  "authors": [
+    {
+      "name": "Nils Harder",
+      "email": "nils.harder@inventivo.de",
+      "homepage": "https://www.inventivo.de"
+    }
+  ],
+  "type": "wordpress-plugin"
+}
