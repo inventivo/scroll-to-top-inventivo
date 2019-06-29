@@ -37,11 +37,9 @@
 
 jQuery(document).ready( function($) {
 
-    console.log(invscrolltotopoptions.alignment);
     /* Add Button to HTML DOM */
     $( 'body' ).append( '<button id=\"scroll-to-top\" class=\"scroll-to-top-button '+invscrolltotopoptions.alignment+'\" style="background: '+invscrolltotopoptions.background_color+'; color: '+invscrolltotopoptions.icon_color+';'+invscrolltotopoptions.alignment+ '"></button>' );
 
     /* Add Scroll To Top Functionality */
     $( '#scroll-to-top' ).scrollToTop();
-
 } );
