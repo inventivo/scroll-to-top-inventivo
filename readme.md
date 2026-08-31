@@ -4,14 +4,13 @@
 
 Add the missing Scroll to top. Visit our Website in order to find more WordPress plugins.
 
-Visit our <a href="https://www.inventivo.de/seo-muenster"> website</a> in order to see the WordPress Scroll to Top Plugin in action.
+Visit our <a href="https://www.inventivo.de/webseiten/wordpress-plugins"> website</a> in order to see the WordPress Scroll to Top Plugin in action.
 
 **Small and simple:**
 * Responsive - fits to all screens
 * Easy configuration
 * Lightweight code
 
-**Get your copy of the Cookie notice GDPR Plugin now!**
 
 ## Screenshots
 
@@ -40,15 +39,15 @@ Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-* [WordPress](https://www.wordpress.org) - The famous Open Source CMS Software
+* [WordPress](https://wordpress.org) - The famous Open Source CMS Software
 
 ## Versioning
 
-For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+For the versions available, see the [tags on this repository](https://github.com/inventivo/scroll-to-top-inventivo/tags). 
 
 ## Authors
 
-* **Nils Harder** [inventivo](https://www.inventivo.de/seo-muenster)
+* **Nils Harder** [inventivo](https://www.inventivo.de/webseiten/wordpress-plugins)
 
 ## License
 

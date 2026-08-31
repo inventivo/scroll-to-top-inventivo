@@ -36,9 +36,8 @@ if (!defined('ABSPATH')) {
 }
 
 // Version of the plugin
-define('INVENTIVO_SCROLL_TO_TOP_CURRENT_VERSION', '1.0.0');
+define('INVENTIVO_SCROLL_TO_TOP_CURRENT_VERSION', '1.0.6');
 
-add_action('admin_enqueue_scripts', array('InventivoScrollToTopSettingsPage','inventivo_scroll_to_top_admincss'));
 add_action('wp_enqueue_scripts', array('InventivoScrollToTopSettingsPage','inventivo_scroll_to_top_js' ));
 add_action('wp_enqueue_scripts', array('InventivoScrollToTopSettingsPage','inventivo_scroll_to_top_publiccss' ));
 
@@ -107,11 +106,6 @@ class InventivoScrollToTopSettingsPage
 	}
 
 	// Add admin styles
-	public static function inventivo_scroll_to_top_admincss()
-	{
-		wp_enqueue_style('inventivo-scroll-to-top-admin-styles', plugins_url('/admin/css/admin-styles.css', __FILE__));
-	}
-
 	/**
 	 * Reads an option and always returns an array.
 	 *
@@ -277,7 +271,7 @@ class InventivoScrollToTopSettingsPage
 	}
 
 	public function admin_notice_get_pro() {
-		if ( get_user_meta( get_current_user_id(), 'inv_notice_dismissed' ) ) {
+		if ( get_user_meta( get_current_user_id(), 'inv_notice_dismissed_scroll_to_top' ) || get_user_meta( get_current_user_id(), 'inv_notice_dismissed' ) ) {
 			return;
 		}
 
@@ -321,15 +315,19 @@ class InventivoScrollToTopSettingsPage
 			return;
 		}
 
-		add_user_meta( get_current_user_id(), 'inv_notice_dismissed', 'true', true );
+		add_user_meta( get_current_user_id(), 'inv_notice_dismissed_scroll_to_top', 'true', true );
 	}
 
 	public function plugin_deactivate()
 	{
-		delete_user_meta( get_current_user_id(), 'inv_notice_dismissed' );
+		delete_user_meta( get_current_user_id(), 'inv_notice_dismissed_scroll_to_top' );
 	}
 
 	public function inv_admin_style() {
+		if ( get_user_meta( get_current_user_id(), 'inv_notice_dismissed_scroll_to_top' ) || get_user_meta( get_current_user_id(), 'inv_notice_dismissed' ) ) {
+			return;
+		}
+
 		wp_enqueue_style('inventivo-scroll-to-top-admin-styles', plugins_url('admin/css/admin-styles.css', __FILE__));
 	}
 }
