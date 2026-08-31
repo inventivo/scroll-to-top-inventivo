@@ -20,10 +20,10 @@
         }
 
         showButton();
-        $( window ).scroll( showButton );
+        $( window ).on( 'scroll', showButton );
 
         /* Scroll back to top when element is clicked */
-        scrollButton.click( function () {
+        scrollButton.on( 'click', function () {
             $( 'html, body' ).animate( { scrollTop: 0 }, 300 );
             return false;
         } );

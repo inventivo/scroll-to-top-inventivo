@@ -1,0 +1,11 @@
+.hreflang-x-default-tag-for-wpml-inventivo-wrapper {
+  display: grid;
+  grid-template-columns: repeat( 2, .5fr 1.5fr );
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-width: 150px;
+  }
+}

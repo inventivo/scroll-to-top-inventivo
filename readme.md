@@ -9,7 +9,7 @@ Visit our <a href="https://www.inventivo.de/seo-muenster"> website</a> in order 
 **Small and simple:**
 * Responsive - fits to all screens
 * Easy configuration
-* Lighweight code
+* Lightweight code
 
 **Get your copy of the Cookie notice GDPR Plugin now!**
 
@@ -22,7 +22,7 @@ Visit our <a href="https://www.inventivo.de/seo-muenster"> website</a> in order 
 ### Prerequisites
 
 * WordPress 3.0 and later
-* Tested up to: 5.2.2
+* Tested up to: 6.3
 
 ### Installing
 
