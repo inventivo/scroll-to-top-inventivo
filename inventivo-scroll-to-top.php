@@ -3,14 +3,13 @@ Contributors: inventivogermany
 Plugin Name:  Scroll to top | inventivo
 Plugin URI:   https://www.inventivo.de/webseiten/wordpress-plugins
 Description:  Display scroll to top button at page bottom
-Version:      1.0.6
+Version:      1.0.7
 Author:       Nils Harder
 Author URI:   https://www.inventivo.de
 Tags: scroll to top, back to top, scroll, button
 Requires at least: 5.0
 Requires PHP: 7.4
-Tested up to: 7.1
-Stable tag: 1.0.6
+Stable tag: 1.0.7
 Text Domain: inventivo-scroll-to-top
 Domain Path: /languages
 License:      GPL2
@@ -36,7 +35,7 @@ if (!defined('ABSPATH')) {
 }
 
 // Version of the plugin
-define('INVENTIVO_SCROLL_TO_TOP_CURRENT_VERSION', '1.0.6');
+define('INVENTIVO_SCROLL_TO_TOP_CURRENT_VERSION', '1.0.7');
 
 add_action('wp_enqueue_scripts', array('InventivoScrollToTopSettingsPage','inventivo_scroll_to_top_js' ));
 add_action('wp_enqueue_scripts', array('InventivoScrollToTopSettingsPage','inventivo_scroll_to_top_publiccss' ));
@@ -253,6 +252,9 @@ class InventivoScrollToTopSettingsPage
 
 	public function alignment_callback()
 	{
+		$selectedA = '';
+		$selectedB = '';
+
 		if ($this->options['alignment'] == 'left') {
 			$selectedA = 'selected';
 		}

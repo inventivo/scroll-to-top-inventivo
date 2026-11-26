@@ -3,14 +3,14 @@ Contributors: inventivogermany
 Plugin Name:  Scroll to top | inventivo
 Plugin URI:   https://www.inventivo.de/webseiten/wordpress-plugins
 Description:  Display a scroll to top button at page bottom
-Version:      1.0.6
+Version:      1.0.7
 Author:       Nils Harder
 Author URI:   https://www.inventivo.de
 Tags: scroll to top, back to top, scroll, button
 Requires at least: 5.0
 Requires PHP: 7.4
-Tested up to: 7.1
-Stable tag: 1.0.6
+Tested up to: 7.2
+Stable tag: 1.0.7
 Text Domain: inventivo-scroll-to-top
 Domain Path: /languages
 License:      GPL2
@@ -55,6 +55,7 @@ Use WordPress' Add New Plugin feature, searching "Scroll to top | inventivo", or
 
 == Changelog ==
 
+1.0.7 Tested with WordPress 7.2 on PHP 7.4, 8.4 and 8.6. Fixed a PHP warning about an undefined variable on the settings page.
 1.0.6 Tested with WordPress 7.1 on PHP 7.4, 8.3 and 8.4. Settings now fall back to defaults, which removes the PHP 8 warnings that occurred on every page view before the first save. Translations are loaded on init. Replaced the deprecated jQuery scroll() and click() shorthands. The admin notice can now be dismissed permanently, which it could not before, it links to a page that exists again, and its stylesheet uses a plugin specific handle so it no longer collides with our other plugins.
 0.0.5   Code optimization
 0.0.4   Moved project to github
